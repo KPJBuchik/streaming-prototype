@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://kit.fontawesome.com/78f23082a5.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -22,7 +21,10 @@
 
 
     <div class="grid-container">
-        <div class="a"><input class="search"><br>
+        <div class="a">
+          <label class="sr-only" for="validationDefault01">Name</label>
+          <input type="text" id="validationDefault01" placeholder="search" class="search"><br>
+          <input class="submit-button" type="submit" text="S">
         <p id="title">Your Library</p>
     <ul>Artists</ul>
     <ul>Artists</ul>
@@ -63,7 +65,7 @@
 
           <div class="top-releases">
             <p>Top Releases</p>
-            <div class="top-albums"></div>
+            <div class="top-albums"> <img class="image-results"></div>
 
             <div class="top-albums top-album2"></div>
             <div class="top-albums top-album5"></div>
@@ -118,7 +120,12 @@
      
       </div>
 
-
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </script>
+      <script src="https://kit.fontawesome.com/78f23082a5.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+      <script src="app.js"></script>
 </body>
 
 </html>

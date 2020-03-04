@@ -64,6 +64,14 @@ position:absolute;
 margin-top:5px;
 border-radius:4px;
 left:5%;}
+.submit-button{
+  position:relative;
+  height: 20px;
+  width: 50px;
+  left: 170px;
+  top: -19px;
+    height:21px;
+}
 
 .album-cover{height:20%;
 width:246.297px;
@@ -299,3 +307,7 @@ color:#31B954;
   color:#31B954;}
 
 body{background-color:#282828;;}
+
+
+.image-results{  width: 120px;
+}
