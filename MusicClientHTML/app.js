@@ -1,7 +1,7 @@
 function searchSpotify() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQBstL6YOxYFjJ-k0CTkKamkzJmXnYdVhju2r0xMDDSXocvTchkSw3SReyy7U8ehhsBARNr2ERLJMwm4jOg3dhgPjV3A3omEU8lr6aaphHgP3xBuYC1kT_g6JaC_XVcDy7_9kStU3EWF"
+    var accessToken = "BQBnEoP1Paf6ZKi0Ll1VPWENz4bkYEcIC1jM9K2HS-JIkkUgq_KI8yMpPijjh88q-YsbsFSOwCrqO0c7zDe38DPADydC3PHhR5z3wQMSZmMzk83dVF0o1xi78TwESYav55H7bbcVqe8U"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -11,7 +11,7 @@ function searchSpotify() {
         },
     }).then(function (response) {
         console.log(response)
-        
+
         // var artistName=$(".band-header").text(response.artists.items[0].name)
         var imgURL = $(".image-results").attr("src", response.artists.items[0].images[1].url)
         console.log(imgURL)
@@ -23,7 +23,7 @@ function searchSpotify() {
 function searchSpotifyName() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQBstL6YOxYFjJ-k0CTkKamkzJmXnYdVhju2r0xMDDSXocvTchkSw3SReyy7U8ehhsBARNr2ERLJMwm4jOg3dhgPjV3A3omEU8lr6aaphHgP3xBuYC1kT_g6JaC_XVcDy7_9kStU3EWF"
+    var accessToken = "BQBnEoP1Paf6ZKi0Ll1VPWENz4bkYEcIC1jM9K2HS-JIkkUgq_KI8yMpPijjh88q-YsbsFSOwCrqO0c7zDe38DPADydC3PHhR5z3wQMSZmMzk83dVF0o1xi78TwESYav55H7bbcVqe8U"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -33,15 +33,29 @@ function searchSpotifyName() {
         },
     }).then(function (response) {
         console.log(response)
-        var artistName=(response.artists.items[0].name)
-        if (artistName.length == 1){
+        var artistName = (response.artists.items[0].name)
+        var artistSplit = artistName.split(" ")
+        if (artistSplit.length === 1) {
             $(".band-header").text(artistName)
-            // $(".band-header").text(response.artists.items[0].name)
+            $(".band-header2").text(" ")
         }
-        if (artistName.length > 1){
-            $(".band-header2").text(artistName.length[1])
+        if (artistSplit.length === 2) {
+            $(".band-header").text(artistSplit[0])
+            $(".band-header2").text(artistSplit[1])
+        }
+
+        if (artistSplit.length === 3) {
+            $(".band-header").text(artistSplit[0]);
+            $(".band-header2").text(artistSplit[1] + " "+ " " + artistSplit[2])
+
 
         }
+
+
+        // $(".band-header").text(artistName)
+        // $(".band-header").text(response.artists.items[0].name)
+
+
         console.log(artistName)
         console.log(artistName.length)
         SearchTopTracks(response.artists.items[0].id)
