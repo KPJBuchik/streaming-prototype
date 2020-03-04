@@ -1,5 +1,8 @@
-body{overflow-x:hidden;}
-
+body{overflow-x:hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .grid-container {
     background-color: #153232;
@@ -34,11 +37,9 @@ body{overflow-x:hidden;}
     grid-column: 2 / 10;
     grid-row: 9/ 11;  
     background-color: white;
-    display: fit-content;
     max-height:112.11px;
     background-color:#282828;
     position: relative;
-    top: 40px;
   }
 
   
