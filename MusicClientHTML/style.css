@@ -403,3 +403,17 @@ body{background-color:#282828;;}
   /* display:none; */
 }
 
+#video-controls{    position: relative;
+  left: 90px;
+  top: -22.5px;
+}
+
+.fa-volume-up{color:#707070;
+margin-left:10px;}
+
+
+.eq-button{color:green;
+position:absolute;
+top:42.5px;
+color:#5E5E5E;
+right:115px;;}
