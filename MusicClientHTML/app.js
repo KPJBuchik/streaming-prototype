@@ -3,11 +3,56 @@ var count = 0
 
 
 
+function getPlaylists() {
+
+
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var queryUrl = "https://api.spotify.com/v1/me/playlists"
+
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+    }).then(function (response) {
+        $("ul").text(response.items[0].name)
+        $("ul:nth-child(2)").text(response.items[1].name)
+        $("ul:nth-child(3)").text(response.items[2].name)
+        $("ul:nth-child(4)").text(response.items[3].name)
+        $("ul:nth-child(5)").text(response.items[4].name)
+        $("ul:nth-child(6)").text(response.items[5].name)
+        $("ul:nth-child(7)").text(response.items[6].name)
+        $("ul:nth-child(8)").text(response.items[7].name)
+        $("ul:nth-child(9)").text(response.items[8].name)
+        $("ul:nth-child(10)").text(response.items[9].name)
+        $("ul:nth-child(11)").text(response.items[10].name)
+        $("ul:nth-child(12)").text(response.items[11].name)
+        $("ul:nth-child(13)").text(response.items[12].name)
+        $("ul:nth-child(14)").text(response.items[13].name)
+        $("ul:nth-child(15)").text(response.items[14].name)
+        $("ul:nth-child(16)").text(response.items[15].name)
+        $("ul:nth-child(17)").text(response.items[16].name)
+        $("ul:nth-child(18)").text(response.items[17].name)
+        $("ul:nth-child(19)").text(response.items[18].name)
+
+        console.log(response.items.name)
+
+
+
+
+    });
+}
+
+$(document).ready(function () {
+    console.log("ready")
+    getPlaylists();
+});
 
 
 function searchSpotify(id) {
 
-    var accessToken = "BQDb7udYYmZ-A_gRb039CdVUv7e_cpIHx1cAHkVYUIokzaX14bpB-TXo7Ure9k8ohKri_usNgQsdaIl376P-oy4FvlBeusR_lEG9pN0p262THlnJWnmF3txHTXiFzEdoOVqNQ2e3FXAz"
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -61,7 +106,7 @@ function searchSpotify(id) {
 function searchSpotifyName() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQDb7udYYmZ-A_gRb039CdVUv7e_cpIHx1cAHkVYUIokzaX14bpB-TXo7Ure9k8ohKri_usNgQsdaIl376P-oy4FvlBeusR_lEG9pN0p262THlnJWnmF3txHTXiFzEdoOVqNQ2e3FXAz"
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -111,7 +156,7 @@ function searchSpotifyName() {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = "BQDb7udYYmZ-A_gRb039CdVUv7e_cpIHx1cAHkVYUIokzaX14bpB-TXo7Ure9k8ohKri_usNgQsdaIl376P-oy4FvlBeusR_lEG9pN0p262THlnJWnmF3txHTXiFzEdoOVqNQ2e3FXAz"
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -138,7 +183,7 @@ function searchAlbumCovers(id) {
 
 function searchRelatedArtists(id) {
 
-    var accessToken = "BQDb7udYYmZ-A_gRb039CdVUv7e_cpIHx1cAHkVYUIokzaX14bpB-TXo7Ure9k8ohKri_usNgQsdaIl376P-oy4FvlBeusR_lEG9pN0p262THlnJWnmF3txHTXiFzEdoOVqNQ2e3FXAz"
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
@@ -166,7 +211,7 @@ function searchRelatedArtists(id) {
 
 
 function getTrack(id) {
-    var accessToken = "BQDb7udYYmZ-A_gRb039CdVUv7e_cpIHx1cAHkVYUIokzaX14bpB-TXo7Ure9k8ohKri_usNgQsdaIl376P-oy4FvlBeusR_lEG9pN0p262THlnJWnmF3txHTXiFzEdoOVqNQ2e3FXAz"
+    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
     var queryUrl = "https://api.spotify.com/v1/tracks/" + id
 
     $.ajax({
@@ -190,12 +235,13 @@ $(".play-button").on("click", function (event) {
     event.preventDefault();
     console.log(count)
     count++;
-    var play=$(".play-button")
+    var play = $(".play-button")
     var video = $(".preview-player")
-    if (count % 2 === 0){
-    video.trigger('play')}
-    else {video.trigger("pause")}
-   
+    if (count % 2 === 0) {
+        video.trigger('play')
+    }
+    else { video.trigger("pause") }
+
 
 }
 )
@@ -213,6 +259,6 @@ $(".submit-button").on("click", function (event) {
 
 })
 
-$('#volume').on('change', function() {
+$('#volume').on('change', function () {
     $('.preview-player').prop("volume", this.value);
 });
