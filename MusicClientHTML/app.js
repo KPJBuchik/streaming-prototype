@@ -1,12 +1,23 @@
-var count = 0
 
+
+
+
+
+
+
+
+
+
+
+
+var count = 0
 
 
 
 function getPlaylists() {
 
 
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/me/playlists"
 
     $.ajax({
@@ -52,7 +63,7 @@ $(document).ready(function () {
 
 function searchSpotify(id) {
 
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -72,27 +83,27 @@ function searchSpotify(id) {
 
         $(".popular-songs1").on("click", function (event) {
             event.preventDefault();
-            $(".preview-player").attr("src", response.tracks[0].preview_url)
+            $("#preview-player").attr("src", response.tracks[0].preview_url)
 
         })
         $(".popular-songs2").on("click", function (event) {
             event.preventDefault();
-            $(".preview-player").attr("src", response.tracks[1].preview_url)
+            $("#preview-player").attr("src", response.tracks[1].preview_url)
 
         })
         $(".popular-songs3").on("click", function (event) {
             event.preventDefault();
-            $(".preview-player").attr("src", response.tracks[2].preview_url)
+            $("#preview-player").attr("src", response.tracks[2].preview_url)
 
         })
         $(".popular-songs4").on("click", function (event) {
             event.preventDefault();
-            $(".preview-player").attr("src", response.tracks[3].preview_url)
+            $("#preview-player").attr("src", response.tracks[3].preview_url)
 
         })
         $(".popular-songs5").on("click", function (event) {
             event.preventDefault();
-            $(".preview-player").attr("src", response.tracks[4].preview_url)
+            $("#preview-player").attr("src", response.tracks[4].preview_url)
 
         })
 
@@ -106,7 +117,7 @@ function searchSpotify(id) {
 function searchSpotifyName() {
     var inputArtist = $("#validationDefault01").val().trim();
 
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -156,7 +167,7 @@ function searchSpotifyName() {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -183,7 +194,7 @@ function searchAlbumCovers(id) {
 
 function searchRelatedArtists(id) {
 
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
@@ -211,7 +222,7 @@ function searchRelatedArtists(id) {
 
 
 function getTrack(id) {
-    var accessToken = "BQB9LiN8MoZMBjWAzWNtYoEOtItDALxxLWXnkhOAk8FEALCLGZGiJ-GIxZ3y8qmeuK3GvPR25x1U-fKbB78sHOO6tofx2imWcWMQzH1MtAmoUf7IbBSwZVJZZsazh5xevuIUBaOk1Vfh"
+    var accessToken = "BQA9JhFiI-Tqcg3j7_pt7oTcsslIpuHlK-_uICzMnlp5R1s-KV6k-O8uBG9FG5fGynHbiZqxfIvAN5jvXxn4Kgf09Hx_EUp2FFOsGhgoid9hmkWm4vVtP338zUzL4GLNOPyPOEjSyQ5B"
     var queryUrl = "https://api.spotify.com/v1/tracks/" + id
 
     $.ajax({
@@ -236,7 +247,7 @@ $(".play-button").on("click", function (event) {
     console.log(count)
     count++;
     var play = $(".play-button")
-    var video = $(".preview-player")
+    var video = $("#preview-player")
     if (count % 2 === 0) {
         video.trigger('play')
     }
@@ -260,5 +271,138 @@ $(".submit-button").on("click", function (event) {
 })
 
 $('#volume').on('change', function () {
-    $('.preview-player').prop("volume", this.value);
+    $('#preview-player').prop("volume", this.value);
 });
+
+
+var vid = document.getElementById("preview-player");
+
+// Assign an ontimeupdate event to the video element, and execute a function if the current playback position has changed
+vid.ontimeupdate = function() {myFunction()};
+
+function myFunction() {
+    console.log("current-time"+vid.currentTime)
+  // Display the current position of the video in a p element with id="demo"
+  document.getElementById("demo").innerHTML = vid.currentTime;
+}
+
+
+var vid = document.getElementById("preview-player");
+vid.ontimeupdate = function(){
+  var percentage = ( vid.currentTime / vid.duration ) * 100;
+  $("#custom-seekbar span").css("width", percentage+"%");
+};
+
+$("#custom-seekbar").on("click", function(e){
+    var offset = $(this).offset();
+    var left = (e.pageX - offset.left);
+    var totalWidth = $("#custom-seekbar").width();
+    var percentage = ( left / totalWidth );
+    var vidTime = vid.duration * percentage;
+    vid.currentTime = vidTime;
+});//click()
+
+
+
+
+var audioCtx = window.AudioContext || window.webkitAudioContext;
+var audioContext, canvasContext;
+
+var filters = [];
+
+var analyser;
+var width, height;
+var dataArray, bufferLength;
+var masterGain, stereoPanner;
+
+
+$("body").on("click", function() {
+    audioContext= new audioCtx()
+
+ buildAudioGraph();
+ requestAnimationFrame(visualize2);
+});
+
+function buildAudioGraph() {
+  var mediaElement = document.getElementById('preview-player');
+  var sourceNode =   audioContext.createMediaElementSource(mediaElement);
+  
+  // Create an analyser node
+  analyser = audioContext.createAnalyser();
+  
+  // Try changing for lower values: 512, 256, 128, 64...
+  analyser.fftSize = 512;
+  bufferLength = analyser.frequencyBinCount;
+  dataArray = new Uint8Array(bufferLength);
+  
+  // create the equalizer. It's a set of biquad Filters
+
+
+    // Set filters
+    [60, 170, 350, 1000, 3500, 10000].forEach(function(freq, i) {
+      var eq = audioContext.createBiquadFilter();
+      eq.frequency.value = freq;
+      eq.type = "peaking";
+      eq.gain.value = 0;
+      filters.push(eq);
+    });
+
+   // Connect filters in serie
+   sourceNode.connect(filters[0]);
+   for(var i = 0; i < filters.length - 1; i++) {
+      filters[i].connect(filters[i+1]);
+    }
+  
+    // Master volume is a gain node
+  masterGain = audioContext.createGain();
+  masterGain.value = 1;
+ 
+
+   // connect the last filter to the speakers
+   filters[filters.length - 1].connect(masterGain);
+  
+  // for stereo balancing, split the signal
+  stereoPanner = audioContext.createStereoPanner();
+  // connect master volume output to the panner
+  masterGain.connect(stereoPanner);
+  
+  // Connect the stereo panner to analyser and analyser to destination
+  stereoPanner.connect(analyser);  
+  analyser.connect(audioContext.destination);
+}
+
+
+
+function changeGain(sliderVal,nbFilter) {
+  var value = parseFloat(sliderVal);
+  filters[nbFilter].gain.value = value;
+  
+  // update output labels
+  var output = document.querySelector("#gain"+nbFilter);
+  output.value = value + " dB";
+}
+
+function changeMasterGain(sliderVal) {
+  var value = parseFloat(sliderVal);
+  masterGain.gain.value =  value/10;
+  
+   // update output labels
+  var output = document.querySelector("#masterGainOutput");
+  output.value = value;
+}
+
+function changeBalance(sliderVal) {
+  // between -1 and +1
+  var value = parseFloat(sliderVal);
+  
+stereoPanner.pan.value = value;
+   // update output labels
+  var output = document.querySelector("#balanceOutput");
+  output.value = value;
+}
+
+
+
+
+
+

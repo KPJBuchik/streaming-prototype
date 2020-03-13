@@ -113,11 +113,11 @@
             <p class="artist-name name3"></p>
             <p class="artist-name name4"></p>
 
+            <p>Playback position: <span id="demo"></span></p>
 
-
-            <video class="preview-player" controls="" autoplay="" name="media">
+            <audio crossorigin="anonymous" id="preview-player" controls="" autoplay="" name="media">
               <source class="preview-source" src="" type="audio/mpeg">
-            </video>
+              </audio>
           </div>
         </div>
             
@@ -142,8 +142,97 @@
             <div id="video-controls">
               
               <input type="range" id="volume" min="0" max="1" step="0.1" value="1" />
+              
           </div>
-          <div class="eq-button">EQ</div>
+          <button data-toggle="modal" data-target="#exampleModal" class="eq-button">EQ</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                <div class="modal-body">
+                  <label  class="switch">
+                    <input type="checkbox">
+                    <span class="slider round">                    
+                    </span>
+                  </label>
+                  <div class="controls">
+                    <label>170Hz</label>
+                    <input type="range" value="0" step="1" min="-30" max="10" oninput="changeGain(this.value, 1);"></input>
+                <output id="gain1">0 dB</output>
+                  </div>
+                  <div class="controls">
+                    <label>350Hz</label>
+                    <input type="range" value="0" step="1" min="-30" max="10" oninput="changeGain(this.value, 2);"></input>
+                <output id="gain2">0 dB</output>
+                  </div>
+                  <input  orient="vertical" class="eq eqband1" type="range" min="0" value="0" max="35" step="1" list="ticks">
+                  <datalist id="ticks">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+
+
+                </datalist>
+                  <input  orient="vertical" class="eq eqband2" type="range"
+                  min="0" value="0" max="35" step="1" list="ticks">
+                  <datalist id="ticks">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+
+
+                </datalist>
+
+                  <input  orient="vertical" class="eq eqband3" type="range" min="0" value="0" max="35" step="1" list="ticks">
+                  <datalist id="ticks">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+
+
+                </datalist>
+                  <input  orient="vertical" class="eq eqband4" type="range" min="0" value="0" max="35" step="1" list="ticks" >
+                  <datalist id="ticks">
+                    <option>0</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+
+
+                </datalist>
+                  <input  orient="vertical" class="eq eqband5" type="range" min="0" value="0" max="35" step="1" list="ticks">
+                
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+          <div id="custom-seekbar">
+            <span></span>
+     
           
         </div>
      
