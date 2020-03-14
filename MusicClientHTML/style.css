@@ -59,13 +59,15 @@ body::-webkit-scrollbar {
     background-color: #31B954 !important;
     width:.5em;
   }
-  .search{width:100px;
-height:20px;
-margin-left:10px;
-position:absolute;
-margin-top:5px;
-border-radius:4px;
-left:5%;}
+  .search{    width: 100px;
+    height: 20px;
+    margin-left: -20px;
+    position: absolute;
+    font-size: 10px;
+    margin-top: 5px;
+    border-radius: 58px;
+    outline:none;
+    left: 5%;}
 .submit-button{
   position: absolute;
   height: 20px;
@@ -225,7 +227,8 @@ word-spacing:100px;}
 top:245px;
 font-size:1.5em;
 left:20px;
-z-index:0;}
+z-index:0;
+margin-right: 702px;}
 
 .top-albums{  
   width: 120px;
@@ -247,7 +250,7 @@ top:-50px;
 
   .top-songs{float:right;
     font-size:1.5em;
-    margin-right:420px;
+    margin-right:490px;
   margin-top:-225px;
 display:block;}
 
@@ -401,7 +404,7 @@ body{background-color:#282828;;}
 .name4{margin-left:45px;}
 
 
-.preview-player{
+#preview-player{
   display:none;
 }
 
@@ -621,5 +624,3 @@ input:checked + .slider:before {
  .ticks{background-color:red;}
 
 
-
- 

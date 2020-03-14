@@ -25,9 +25,11 @@
           <div class="sidebar">
 
           <label class="sr-only" for="validationDefault01">Name</label>
+          <form>
           <input type="text" id="validationDefault01" placeholder="search" class="search"><br>
-          <input class="submit-button" type="submit" text="S">
-        <p id="title">Your Library</p>
+          <input class="submit-button" type="submit" style="visibility: hidden;"/>
+        </form>
+        <p id="title">Playlists</p>
         <div class="lists">
     <ul class="playlist">Artists</ul>
     <ul>Artists</ul>
@@ -63,10 +65,8 @@
           <div class="user-image">
             <p class="user-name">User Name</p>
           </div>
-          <p class="overview">Overview   Related About Concerts</p>
           <H1 class="band-header">Guided</H1>
           <H1 class="band-header2">By Voices</H1>
-          <button class="artist-play">Play</button>
 
           <div class="top-releases">
             <p>Top Releases</p>
@@ -102,13 +102,14 @@
           </div>
           <div class="related-artists">
             <p class="fans-like">Related Artists</p>
+
             <div class="circles">
 
-            <div class="related-circle"><img class=" related-img related1"></div>
-            <div class="related-circle"><img class=" related-img related2"></div>
-            <div class="related-circle"><img class=" related-img related3"></div>
-            <div class="related-circle"><img class=" related-img related4"></div>
-            <p class="artist-name name1"></p>
+            <div class="related-circle circle1" value=""><img class="related-img related1"></div>
+            <div class="related-circle circle2"><img class=" related-img related2"></div>
+            <div class="related-circle circle3"><img class=" related-img related3"></div>
+            <div class="related-circle circle4"><img class=" related-img related4"></div>
+            <p class="artist-name name-one name1"></p>
             <p class="artist-name name2"></p>
             <p class="artist-name name3"></p>
             <p class="artist-name name4"></p>
@@ -157,64 +158,73 @@
                     <span class="slider round">                    
                     </span>
                   </label>
-               
-                  <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="10" oninput="changeGain(this.value, 1);"></input>
-                  <output id="gain1">0 dB</output> 
+                  <button id="stop-eq"></button>
+                  <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="20" oninput="changeGain(this.value, 1);"></input>
                   <datalist id="ticks">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                    <option>25</option>
-                    <option>30</option>
-                    <option>35</option>
-
-
-                </datalist>
-                  <input  orient="vertical" class="eq eqband2" type="range"
-                  min="0" value="0" max="35" step="1" list="ticks">
-                  <datalist id="ticks">
+                    <option>-30</option>
+                    <option>-25</option>
+                    <option>-20</option>
+                    <option>-15</option>
+                    <option>-10</option>
+                    <option>-5</option>
                     <option>0</option>
                     <option>5</option>
                     <option>10</option>
                     <option>15</option>
                     <option>20</option>
-                    <option>25</option>
-                    <option>30</option>
-                    <option>35</option>
+
+                </datalist>
+                <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="20" oninput="changeGain(this.value, 2);"></input>
+                <datalist id="ticks">
+                  <option>-30</option>
+                  <option>-25</option>
+                  <option>-20</option>
+                  <option>-15</option>
+                  <option>-10</option>
+                  <option>-5</option>
+                  <option>0</option>
+                  <option>5</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
 
 
                 </datalist>
 
-                  <input  orient="vertical" class="eq eqband3" type="range" min="0" value="0" max="35" step="1" list="ticks">
-                  <datalist id="ticks">
-                    <option>0</option>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                    <option>25</option>
-                    <option>30</option>
-                    <option>35</option>
+                <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="20" oninput="changeGain(this.value, 3);"></input>
+                <datalist id="ticks">
+                  <option>-30</option>
+                  <option>-25</option>
+                  <option>-20</option>
+                  <option>-15</option>
+                  <option>-10</option>
+                  <option>-5</option>
+                  <option>0</option>
+                  <option>5</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
 
 
                 </datalist>
-                  <input  orient="vertical" class="eq eqband4" type="range" min="0" value="0" max="35" step="1" list="ticks" >
-                  <datalist id="ticks">
-                    <option>0</option>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>15</option>
-                    <option>20</option>
-                    <option>25</option>
-                    <option>30</option>
-                    <option>35</option>
+                <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="20" oninput="changeGain(this.value, 4);"></input>
+                <datalist id="ticks">
+                  <option>-30</option>
+                  <option>-25</option>
+                  <option>-20</option>
+                  <option>-15</option>
+                  <option>-10</option>
+                  <option>-5</option>
+                  <option>0</option>
+                  <option>5</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
 
 
                 </datalist>
-                  <input  orient="vertical" class="eq eqband5" type="range" min="0" value="0" max="35" step="1" list="ticks">
-                
+                <input  orient="vertical"  class="eq eqband1" list="ticks" type="range" value="0" step="1" min="-30" max="20" oninput="changeGain(this.value, 5);"></input>
+    
 
                 </div>
               </div>
