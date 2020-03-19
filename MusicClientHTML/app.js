@@ -1,14 +1,32 @@
 
 var count = 0
 
+function getUserProfile() {
 
+
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
+    var queryUrl = "https://api.spotify.com/v1/me/"
+
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+    }).then(function (response) {
+        $(".user-name").text(response.display_name)
+        $(".user-image").attr("src", response.images[0].url)
+
+
+    });
+}
 
 
 //ajax call to populate sidebar with playlists
 function getPlaylists() {
 
 
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
     var queryUrl = "https://api.spotify.com/v1/me/playlists"
 
     $.ajax({
@@ -45,15 +63,45 @@ function getPlaylists() {
     });
 }
 
+function getPlaylistTracks() {
+
+
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
+    var queryUrl = "https://api.spotify.com/v1/playlists/0wrXVM1W8n8mPrA1vEeCnd/tracks"
+
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+    }).then(function (response) {
+        console.log(response)
+
+
+
+
+    });
+}
+
+
+
+
+
+
+
+
+
 $(document).ready(function () {
     console.log("ready")
     getPlaylists();
+    getUserProfile()
 });
 
 //get artists top tracks and album covers
 function searchSpotify(id) {
 
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -65,7 +113,8 @@ function searchSpotify(id) {
     }).then(function (response) {
 
         console.log(response)
-        $(".popular-songs1").text("1" + " " + response.tracks[0].name)
+        $(".popular-songs1").html("1" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp"
+            + '<i class="far fa-thumbs-up"></i>' + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + response.tracks[0].name)
         $(".popular-songs2").text("2" + " " + response.tracks[1].name)
         $(".popular-songs3").text("3" + " " + response.tracks[2].name)
         $(".popular-songs4").text("4" + " " + response.tracks[3].name)
@@ -88,7 +137,7 @@ function searchSpotify(id) {
             $(".album-cover").attr("src", response.tracks[1].album.images[0].url)
 
 
-
+            
         })
         $(".popular-songs3").on("click", function (event) {
             event.preventDefault();
@@ -120,7 +169,7 @@ function searchSpotify(id) {
         })
 
 
-
+        
         // $(".preview-player").html('<source src=' +response.tracks[0].preview_url + 'type="audio/mpeg"></source>')
         console.log(response.tracks[0].preview_url)
     })
@@ -128,9 +177,9 @@ function searchSpotify(id) {
 
 //initial function to retrieve artists name, artist picture and populates other search functions wit id callbacks
 function searchSpotifyName() {
-    var inputArtist = $("#validationDefault01").val().trim();
+    var inputArtist = $(".validationDefault01").val().trim() || $(".validationDefault02").val().trim()
 
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -166,19 +215,27 @@ function searchSpotifyName() {
 
         }
 
+       
+
         // $(".band-header").text(artistName)
         // $(".band-header").text(response.artists.items[0].name)
         searchAlbumCovers(response.artists.items[0].id)
         searchSpotify(response.artists.items[0].id)
         searchRelatedArtists(response.artists.items[0].id)
         searchSpotifyNameClone(response.artists.items[0].id)
+
+
+     
+        
     })
+
+
+    
 }
 
 function searchSpotifyNameClone(id) {
-
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
-    var queryUrl = "https://api.spotify.com/v1/artists/" + id 
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
+    var queryUrl = "https://api.spotify.com/v1/artists/" + id
     $.ajax({
         url: queryUrl,
         method: "GET",
@@ -216,6 +273,10 @@ function searchSpotifyNameClone(id) {
 
 
         }
+        if (artistSplit.length > 3){
+            $(".band-header").text(artistName);
+
+        }
 
         // $(".band-header").text(artistName)
         // $(".band-header").text(response.artists.items[0].name)
@@ -238,7 +299,7 @@ function searchSpotifyNameClone(id) {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -248,13 +309,25 @@ function searchAlbumCovers(id) {
             'Authorization': 'Bearer ' + accessToken
         },
     }).then(function (response) {
-
         $(".image-results").attr("src", response.items[0].images[0].url)
         $(".image-results2").attr("src", response.items[1].images[0].url)
         $(".image-results3").attr("src", response.items[2].images[0].url)
         $(".image-results4").attr("src", response.items[3].images[0].url)
         $(".image-results5").attr("src", response.items[4].images[0].url)
         $(".image-results6").attr("src", response.items[6].images[0].url)
+
+        $(".album-name").text(response.items[0].name)
+        $(".album-name2").text(response.items[1].name)
+        $(".album-name3").text(response.items[2].name)
+        $(".album-name4").text(response.items[3].name)
+        $(".album-name5").text(response.items[4].name)
+        $(".album-name6").text(response.items[5].name)
+        $(".album-name7").text(response.items[6].name)
+
+
+
+
+
 
         console.log(response.items[0].images[0].url)
         console.log(response)
@@ -265,7 +338,7 @@ function searchAlbumCovers(id) {
 //get artists related artists
 function searchRelatedArtists(id) {
 
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
+    var accessToken = "BQCSxKNEmDoGsHWe9BzthGuaKSTyVb0W_JqiLBM41ajKDaVQvuC0JnMQboxZgr3dnsR7KDs7WxDn7tszN4AL5tVHOT505cdDktwhD5o6GhwGcOLJ29ikskVtvd7G67bEUYQlmqwRwyAS"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
@@ -327,23 +400,7 @@ function searchRelatedArtists(id) {
 
 
 
-function getTrack(id) {
-    var accessToken = "BQCJu6kdBWbXaq2Mh5F-oX2Xh8UL-nZBqPbY1DQZXnN2NtAMDLjcm0GywdRGQ5YbokTEgX2HKP5uG7IVEnQck1YW8J_tkl_RvMnrhmTeoBBKPHCDfG6GhFBq1gJWE-bYFYgiMbjTQiBf"
-    var queryUrl = "https://api.spotify.com/v1/tracks/" + id
 
-    $.ajax({
-        url: queryUrl,
-        method: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },
-    }).then(function (response) {
-
-
-
-
-    })
-}
 
 
 $(".play-button").on("click", function (event) {
@@ -361,23 +418,41 @@ $(".play-button").on("click", function (event) {
 
 }
 )
-
-
+var submitCount = 0
 $(".submit-button").on("click", function (event) {
     event.preventDefault();
-    if ($("#validationDefault01").val() !== "") {
+    console.log("value: "+$(".validationDefault01").val())
+    submitCount++;
+    if ($(".validationDefault01").val() !== "") {
         searchSpotify();
         searchSpotifyName();
         searchAlbumCovers();
-        getTrack();
     }
+    if (submitCount === 1){
+        $(".grid-container2").css("display", "inline-grid")
 
+    }
+    $(".validationDefault01").val("")
 
-    $("#validationDefault01").val("")
 
 })
 
-$('#volume').on('change', function () {
+$(".submit-button2").on("click", function (event) {
+    event.preventDefault();
+    console.log("value:"+$(".validationDefault02").val())
+    submitCount++;
+    if ($(".validationDefault02").val() !== "") {
+        searchSpotify();
+        searchSpotifyName();
+        searchAlbumCovers();
+    }
+
+    $(".validationDefault02").val("")
+
+})
+
+
+$('.volume').on('change', function () {
     $('#preview-player').prop("volume", this.value);
 });
 
@@ -507,3 +582,4 @@ function changeGain(sliderVal, nbFilter) {
 
 
 
+//dynamically generate holders for images and words
