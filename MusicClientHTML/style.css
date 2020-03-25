@@ -27,6 +27,18 @@ body::-webkit-scrollbar {
     top: -700px;
    
   }
+  .grid-container3 {
+    background-color: #153232;
+    width: 520%;
+    height: 1vh;
+    display: none;
+    grid-gap: 1px;
+    grid-template-columns:246.297px;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto 1px;
+    position: relative;
+    top: -700px;
+   
+  }
 
   .a {
     background-color: #121212 !important;
@@ -73,7 +85,7 @@ body::-webkit-scrollbar {
     background-color: #31B954 !important;
     width:.5em;
   }
-  .validationDefault01, .validationDefault02{    width: 100px;
+  .validationDefault01, .validationDefault02, .validationDefault03{    width: 100px;
     height: 20px;
     margin-left: -20px;
     position: absolute;
@@ -173,6 +185,13 @@ width:100%;
 object-fit: fill;
 border-color:#153232;
 }
+.header-image3{
+  height:200px;
+width:100%;
+object-fit: fill;
+border-color:#153232;
+}
+
 .clubopen {width:100%;
   height:100%;
   filter: hue-rotate(180deg) saturate(2);
@@ -663,3 +682,43 @@ input:checked + .slider:before {
 
 
 .row2-text{    margin-top: -218px;}
+
+
+
+/* album cover page */
+
+
+.album-cover-page{width:225px;
+height:225px;
+background-color:white;
+margin-top:-150px;
+margin-left:20px;}
+
+
+.album-info{    color: white;
+  font-size: 1em;
+  margin-top: -180px;
+  margin-left: 255px;
+  line-height:10px;
+}
+
+.track-list{margin-top:100px;
+  margin-left:20px;
+color:#B9B9B9;
+line-height:.5px !important;
+}
+.track{line-height:10px;
+  font-size: 14px;
+  list-style-type:none;
+}
+
+.more-albums-by{display:flex;}
+.more-albums{
+  margin-left:12px;
+  margin-bottom:200px;
+  height:165px;
+width:165px;
+background-color:white;}
+
+.more-a-b-a{color:white;
+margin-left:20px;}
