@@ -1,8 +1,3 @@
-
-
-
-
-// Get the hash of the url
 const hash = window.location.hash
 .substring(1)
 .split('&')
@@ -22,23 +17,15 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = 'b6ce36d62a8246c1b73f73fa4d28cfb5';
-const redirectUri = 'http://localhost:8888';
+const redirectUri = 'https://kpjbuchik.github.io/streaming-prototype/';
 const scopes = [
-  'user-read-birthdate',
-  'user-read-email',
-  'user-read-private'
+  'user-top-read'
 ];
 
 // If there is no token, redirect to Spotify authorization
 if (!_token) {
-  window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token`;
+  window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 }
-
-
-
-
-
-
 
 var count = 0
 
@@ -47,19 +34,17 @@ var count = 0
 function getUserProfile() {
 
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/me/"
 
     $.ajax({
         url: queryUrl,
-        method: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },
-    }).then(function (response) {
-        $(".user-name").text(response.display_name)
+        type: "GET",
+        beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+        success: function(response) { 
+             $(".user-name").text(response.display_name)
         $(".user-image").attr("src", response.images[0].url)
-
+        }
     });
 }
 
@@ -68,7 +53,7 @@ function getUserProfile() {
 function getPlaylists() {
 
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/me/playlists"
 
     $.ajax({
@@ -151,7 +136,7 @@ function getPlaylistTracks() {
         var playlistId = $(this).attr("value")
 
 
-        var accessToken = ""
+        var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
         var queryUrl = "https://api.spotify.com/v1/playlists/" + playlistId + "/tracks"
 
         $.ajax({
@@ -202,7 +187,7 @@ $(document).ready(function () {
 //get artists top tracks and album covers
 function searchSpotify(id) {
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -288,7 +273,7 @@ function searchSpotify(id) {
 function searchSpotifyName() {
     var inputArtist = $(".validationDefault01").val().trim() || $(".validationDefault02").val().trim() || $(".validationDefault03").val().trim()
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -341,7 +326,7 @@ function searchSpotifyName() {
 }
 
 function searchSpotifyNameClone(id) {
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id
     $.ajax({
         url: queryUrl,
@@ -405,7 +390,7 @@ function searchSpotifyNameClone(id) {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -491,7 +476,7 @@ function searchAlbumCovers(id) {
 function getAlbumTracklist() {
 
     var albumId = $(".image-results").attr("value");
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/albums/" + albumId + "/tracks"
 
     $.ajax({
@@ -554,7 +539,7 @@ function getAlbumTracklist() {
 //get artists related artists
 function searchRelatedArtists(id) {
 
-    var accessToken = ""
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
