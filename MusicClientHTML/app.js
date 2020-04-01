@@ -31,22 +31,21 @@ var count = 0
 
 
 //get user image
-function getUserProfile() {
 
 
-    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
-    var queryUrl = "https://api.spotify.com/v1/me/"
 
     $.ajax({
-        url: queryUrl,
+        url: "https://api.spotify.com/v1/me/",
         type: "GET",
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
         success: function(response) { 
-             $(".user-name").text(response.display_name)
+        $(".user-name").text(response.display_name)
         $(".user-image").attr("src", response.images[0].url)
-        }
+        } 
     });
-}
+
+
+
 
 
 //ajax call to populate sidebar with playlists
