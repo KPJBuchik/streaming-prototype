@@ -6,7 +6,7 @@ var count = 0
 function getUserProfile() {
 
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/me/"
 
     $.ajax({
@@ -27,7 +27,7 @@ function getUserProfile() {
 function getPlaylists() {
 
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/me/playlists"
 
     $.ajax({
@@ -37,6 +37,7 @@ function getPlaylists() {
             'Authorization': 'Bearer ' + accessToken
         },
     }).then(function (response) {
+        console.log
         $("ul").text(response.items[0].name)
         $("ul").attr("value", response.items[0].id)
 
@@ -104,38 +105,44 @@ function getPlaylists() {
 
 function getPlaylistTracks() {
 
-    $("ul").click(function() {
+    $("ul").click(function () {
 
         var playlistId = $(this).attr("value")
 
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
-    var queryUrl = "https://api.spotify.com/v1/playlists/"+ playlistId + "/tracks"
+        var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
+        var queryUrl = "https://api.spotify.com/v1/playlists/" + playlistId + "/tracks"
 
-    $.ajax({
-        url: queryUrl,
-        method: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },
-    }).then(function (response) {
-        console.log(response)
-        for (var i = 0; i < response.items.length; i++) {
-            let results = response.items[i].track.name
-            let tracklistDiv = $("<div>")
-            tracklistDisplay = $("<p>").text(results+"-"+response.items[i].track.artists[0].name).addClass("track")
-            let trackHr = $("<hr>")
-            tracklistDiv.html(tracklistDisplay)
-            $(".track-list").append(tracklistDiv)
-            $(".track-list").append(trackHr)
+        $.ajax({
+            url: queryUrl,
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+        }).then(function (response) {
+            console.log(response)
+            for (var i = 0; i < response.items.length; i++) {
+                let newTime = timeConversion(response.items[i].track.duration_ms)
+                let results = response.items[i].track.name
+                let tracklistDiv = $("<div>")
+                tracklistDisplay = $("<p>").text(results + "-" + response.items[i].track.artists[0].name + " " + newTime).addClass("track")
+                let trackHr = $("<hr>")
+                tracklistDiv.html(tracklistDisplay)
+                $(".track-list").append(tracklistDiv)
+                $(".track-list").append(trackHr)
+                $(".track-list").click(function () {
+                    event.preventDefault();
+                    for (i = 0; i < response.items.length; i++) {
+                        $("#preview-player").attr("src", response.items[i].track.preview_url)
+                        $(".album-cover").attr("src", response.items[i].track.album.images[0].url)
 
-        }
+
+                    }
+                })
 
 
-
-
-    })
-
+            }
+        })
 
     });
 }
@@ -154,7 +161,7 @@ $(document).ready(function () {
 //get artists top tracks and album covers
 function searchSpotify(id) {
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -240,7 +247,7 @@ function searchSpotify(id) {
 function searchSpotifyName() {
     var inputArtist = $(".validationDefault01").val().trim() || $(".validationDefault02").val().trim() || $(".validationDefault03").val().trim()
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -293,7 +300,7 @@ function searchSpotifyName() {
 }
 
 function searchSpotifyNameClone(id) {
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id
     $.ajax({
         url: queryUrl,
@@ -357,7 +364,7 @@ function searchSpotifyNameClone(id) {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -441,9 +448,9 @@ function searchAlbumCovers(id) {
 }
 
 function getAlbumTracklist() {
-    
+
     var albumId = $(".image-results").attr("value");
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/albums/" + albumId + "/tracks"
 
     $.ajax({
@@ -506,7 +513,7 @@ function getAlbumTracklist() {
 //get artists related artists
 function searchRelatedArtists(id) {
 
-    var accessToken = "BQANH39gnva7KJRiZTVIVLe6RDCZsWTE3QJ9tMgmFilbW7Ao5ClDYsMhYs7f0npagdzoDZVVW7ouSI4NAWL8Fj-xZ4tqt-giMCwM3BPXg00gXxuq8qwD894wiGTJc2t0Oq4LdE1Wd53R"
+    var accessToken = "BQCWWu_xyzxMv8guVISoGX29QlDqMgKW3FnYN2iJLcBa3kYoD3VajsdWomtOR1iejAcnRQolGiyMVxGiKCG_m5MqulxL1yDXmBB-c1a6i5P7_PfG11-4cmukz538SWC7LfUWacoACslF"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
@@ -571,19 +578,19 @@ function timeConversion(ms) {
     var seconds = ((ms % 60000) / 1000).toFixed(0);
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
-$("ul").on("click",function (event){
+$("ul").on("click", function (event) {
 
     event.preventDefault();
     console.log("JESUS")
     $(".grid-container3").css("display", "inline-grid")
     $(".grid-container").css("display", "hidden")
-    $(".grid-container2").css("display","hidden")
+    $(".grid-container2").css("display", "hidden")
     $(".track-list").empty()
 
     getPlaylistTracks();
 
-    
-    })
+
+})
 
 $(".image-results").on("click", function (event) {
     event.preventDefault();
@@ -636,7 +643,7 @@ $(".submit-button").on("click", function (event) {
 
     }
     $(".grid-container2").css("display", "inline-grid")
-    $(".grid-container3").css("display","none")
+    $(".grid-container3").css("display", "none")
 
     $(".validationDefault01").val("")
     $(".track-list").empty()
