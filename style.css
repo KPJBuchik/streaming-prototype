@@ -302,12 +302,13 @@ top:-50px;
     margin-top:40px;
   }
 
-  .top-songs{float:right;
-    font-size:1.5em;
-    margin-right:490px;
-  margin-top:-225px;
-display:block;
-z-index:10}
+  .top-songs{float: right;
+  font-size: 1.5em;
+  margin-right: 490px;
+  /* margin-top: -225px; */
+  display: block;
+  position: relative;
+  top: -220px;}
 
 .popular-songs{
   position: initial;
@@ -315,6 +316,8 @@ z-index:10}
 color:#A0A0A0;
 margin-right: -250px !important;
 }
+.popular-songs:hover{cursor:pointer;
+color:white;}
 
 .time-duration{display:inline-block !important;
   
@@ -334,8 +337,8 @@ margin-right: -250px !important;
     font-size: 1.5em !important;
 }
 .circles{margin-left:425px;}
-.related-artists{position: relative;
-  top: -250px;}
+.related-artists{    position: absolute;
+  top: 500px;}
 .related-circle{
   margin-left:10px;
 display:inline-block;
@@ -583,7 +586,8 @@ grid-auto-rows: inherit;}
 height:500px;}
 
 
-
+ul:hover{cursor:pointer;
+color:white;}
 #custom-seekbar
 {  
   background-color:#707070;
@@ -756,9 +760,13 @@ margin-left:20px;}
 color:#B9B9B9;
 line-height:.5px !important;
 }
-.track{line-height:10px;
+.track, .playlist-track{line-height:10px;
   font-size: 14px;
   list-style-type:none;
+}
+.track, .playlist-track:hover{
+  cursor:pointer;
+  color:white;
 }
 
 .more-albums-by{display:flex;}
@@ -771,3 +779,5 @@ background-color:white;}
 
 .more-a-b-a{color:white;
 margin-left:20px;}
+
+.by-artist-album:hover{cursor:pointer;}
