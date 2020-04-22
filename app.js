@@ -30,7 +30,14 @@
 
 var count = 0
 
-
+$(document).ready(function () {
+    console.log("ready")
+    getPlaylists();
+    getPlaylistTracks();
+    getUserProfile();
+    getAlbumTracklist();
+    getNewReleases()
+});
 //get user image
 function getUserProfile() {
 
@@ -50,13 +57,174 @@ function getUserProfile() {
 
 
 }
+// $(".home").on("click",function(){
+
+// getTop()
+
+// })
+
+$(document).ready(
+
+    function getNewReleases() {
+
+        var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
+        var queryUrl = "https://api.spotify.com/v1/browse/new-releases"
+
+
+        $.ajax({
+            url: queryUrl,
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+        }).then(function (response) {
+
+            console.log(response)
+            // for (let i = 0; i < 6 + 1; i++) {
+           
+            $(".recent-album-cover").attr("src", response.albums.items[0].images[0].url)
+            $(".recent-album-cover").attr("value", response.albums.items[0].id)
+            
+            $(".new-release-album-name1").html(response.albums.items[0].name)
+            $(".new-release-artist-name1").html(response.albums.items[0].artists[0].name)
+
+            $(".recent-album-cover2").attr("src", response.albums.items[1].images[0].url)
+            $(".recent-album-cover2").attr("value", response.albums.items[1].id)
+
+            $(".new-release-album-name2").html(response.albums.items[1].name)
+            $(".new-release-artist-name2").html(response.albums.items[1].artists[0].name)
+
+
+            $(".recent-album-cover3").attr("src", response.albums.items[2].images[0].url)
+            $(".recent-album-cover3").attr("value", response.albums.items[2].id)
+            $(".new-release-album-name3").html(response.albums.items[2].name)
+            $(".new-release-artist-name3").html(response.albums.items[2].artists[0].name)
+
+
+            $(".recent-album-cover4").attr("src", response.albums.items[3].images[0].url)
+            $(".recent-album-cover4").attr("value", response.albums.items[3].id)
+            $(".new-release-album-name4").html(response.albums.items[3].name)
+            $(".new-release-artist-name4").html(response.albums.items[3].artists[0].name)
+
+
+            $(".recent-album-cover5").attr("src", response.albums.items[4].images[0].url)
+            $(".recent-album-cover5").attr("value", response.albums.items[4].id)
+            $(".new-release-album-name5").html(response.albums.items[4].name)
+            $(".new-release-artist-name5").html(response.albums.items[4].artists[0].name)
+
+            $(".recent-album-cover6").attr("src", response.albums.items[5].images[0].url)
+            $(".recent-album-cover6").attr("value", response.albums.items[5].id)
+            $(".new-release-album-name6").html(response.albums.items[5].name)
+            $(".new-release-artist-name6").html(response.albums.items[5].artists[0].name)
+
+
+
+
+        })
+    }
+)
+
+
+$(document).ready(
+
+    function getTop() {
+
+        var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
+        var queryUrl = "https://api.spotify.com/v1/me/albums?limit=50&offset=5"
+
+
+        $.ajax({
+            url: queryUrl,
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+        }).then(function (response) {
+            console.log(response)
+
+            var check = Math.floor(Math.random() * 20)
+            var check2 = Math.floor(Math.random() * 20)
+            var check3 = Math.floor(Math.random() * 20)
+            var check4 = Math.floor(Math.random() * 20)
+            var check5 = Math.floor(Math.random() * 20)
+            var check6 = Math.floor(Math.random() * 20)
+            var check7 = Math.floor(Math.random() * 20)
+            var check8 = Math.floor(Math.random() * 20)
+            $(".album-picks-for-you1").attr("src", response.items[check].album.images[0].url)
+            $(".album-picks-for-you1").attr("value", response.items[check].album.id)
+            $(".picks-album1").html(response.items[check].album.name)
+            $(".picks-artist1").html(response.items[check].album.artists[0].name)
+
+            $(".album-picks-for-you2").attr("src", response.items[check2].album.images[0].url)
+            $(".album-picks-for-you2").attr("value", response.items[check2].album.id)
+            $(".picks-album2").html(response.items[check2].album.name)
+            $(".picks-artist2").html(response.items[check2].album.artists[0].name)
+
+
+            $(".album-picks-for-you3").attr("src", response.items[check3].album.images[0].url)
+            $(".album-picks-for-you3").attr("value", response.items[check3].album.id)
+            $(".picks-album3").html(response.items[check3].album.name)
+            $(".picks-artist3").html(response.items[check3].album.artists[0].name)
+
+            $(".album-picks-for-you4").attr("src", response.items[check4].album.images[0].url)
+            $(".album-picks-for-you4").attr("value", response.items[check4].album.id)
+            $(".picks-album4").html(response.items[check4].album.name)
+            $(".picks-artist4").html(response.items[check4].album.artists[0].name)
+
+            $(".album-picks-for-you5").attr("src", response.items[check5].album.images[0].url)
+            $(".album-picks-for-you5").attr("value", response.items[check5].album.id)
+            $(".picks-album5").html(response.items[check5].album.name)
+            $(".picks-artist5").html(response.items[check5].album.artists[0].name)
+
+            $(".album-picks-for-you6").attr("src", response.items[check6].album.images[0].url)
+            $(".album-picks-for-you6").attr("value", response.items[check6].album.id)
+            $(".picks-album6").html(response.items[check6].album.name)
+            $(".picks-artist6").html(response.items[check6].album.artists[0].name)
+
+            $(".album-picks-for-you7").attr("src", response.items[check7].album.images[0].url)
+            $(".album-picks-for-you7").attr("value", response.items[check7].album.id)
+            $(".picks-album7").html(response.items[check7].album.name)
+            $(".picks-artist7").html(response.items[check7].album.artists[0].name)
+
+            $(".album-picks-for-you8").attr("src", response.items[check8].album.images[0].url)
+            $(".album-picks-for-you8").attr("value", response.items[check8].album.id)
+            $(".picks-album8").html(response.items[check8].album.name)
+            $(".picks-artist8").html(response.items[check8].album.artists[0].name)
+
+
+
+
+            $(".on-this-day-cover1").attr("src", response.items[20].album.images[0].url)
+            $(".on-this-day-cover1").attr("value", response.items[20].album.id)
+            $(".on-this-day-album-name1").html(response.items[20].album.name)
+            $(".on-this-day-artist-name1").html(response.items[20].album.artists[0].name)
+
+
+            $(".on-this-day-cover2").attr("src", response.items[21].album.images[0].url)
+            $(".on-this-day-cover2").attr("value", response.items[21].album.id)
+
+            $(".on-this-day-album-name2").html(response.items[21].album.name)
+            $(".on-this-day-artist-name2").html(response.items[21].album.artists[0].name)
+
+
+            $(".on-this-day-cover3").attr("src", response.items[22].album.images[0].url)
+            $(".on-this-day-cover3").attr("value", response.items[22].album.id)
+
+            $(".on-this-day-album-name3").html(response.items[22].album.name)
+            $(".on-this-day-artist-name3").html(response.items[22].album.artists[0].name)
+
+
+
+        })
+    }
+)
 
 
 //ajax call to populate sidebar with playlists
 function getPlaylists() {
 
 
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/me/playlists"
 
     $.ajax({
@@ -263,12 +431,12 @@ function getPlaylists() {
 
 function getPlaylistTracks() {
 
-    $("ul, .cowboy").click(function () {
+    $("ul, .genre-img").click(function () {
 
         var playlistId = $(this).attr("value")
 
 
-        var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+        var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
         var queryUrl = "https://api.spotify.com/v1/playlists/" + playlistId + "/tracks"
 
         $.ajax({
@@ -279,30 +447,78 @@ function getPlaylistTracks() {
             },
         }).then(function (response) {
             console.log(response)
-            for (let i = 0; i < response.items.length; i++) {
+            for (let i = 0; i < response.items.length + 1; i++) {
                 let newTime = timeConversion(response.items[i].track.duration_ms)
                 let trackTime = $("<p>").text(newTime).addClass("track-time")
                 let results = response.items[i].track.name
                 let tracklistDiv = $("<div>")
-                tracklistDisplay = $("<p>").text(results + "-" + response.items[i].track.artists[0].name).addClass("playlist-track")
+                tracklistDisplay = $("<p>").text(results).addClass("playlist-track")
+                let tracklistArtist = $("<p>").text(response.items[i].track.artists[0].name).addClass("playlist-artist")
+                $(tracklistArtist).attr("value", response.items[i].track.artists[0].id)
                 let trackHr = $("<hr>")
                 tracklistDiv.html(tracklistDisplay)
                 $(".track-list").append(tracklistDiv)
                 $(".track-list").append(trackHr)
                 $(tracklistDiv).append(trackTime)
+                $(tracklistDiv).append(tracklistArtist)
+                $(".next-track").addClass("next-track-playlist")
+                $(".previous-track").addClass("previous-track-playlist")
 
-                $(".playlist-track").click(function () {
+
+                $(".playlist-track").click(function (event) {
+                    count++
+                    $(".play-button").attr("src", "Component 60 – 2.png")
                     event.preventDefault();
                     console.log(response)
+                    $(".album-cover").attr("src", response.items[i].track.album.images[0].url)
+
                     $(".now-playing-artist").text(response.items[i].track.album.artists[0].name) //WHY?
                     $(".now-playing-song").text(response.items[i].track.name)
 
                     $("#preview-player").attr("src", response.items[i].track.preview_url)
-                    $(".album-cover").attr("src", response.items[i].track.album.images[0].url)
                     $(".now-playing-artist").html(response.items[i].track.artist.name) //this makes it work for some reasons
+
 
                 })
 
+
+
+                $(".playlist-artist").on("click", function () {
+                    $(".grid-container2").css("display", "inline-grid")
+                    $(".grid-container3").css("display", "none")
+                    $(".track-list").empty();
+                    searchSpotifyNameClone(response.items[i].track.artists[0].id)
+                    searchRelatedArtists(response.items[i].track.artists[0].id)
+                    searchSpotify(response.items[i].track.artists[0].id);
+                    searchAlbumCovers(response.items[i].track.artists[0].id);
+                    $(".now-playing-artist").html(response.items[i].track.artist.name) //this makes it work for some reasons
+
+
+
+                })
+                $(".next-track-playlist").on("click", function () {
+                    $(".album-cover").attr("src", response.items[i + 1].track.album.images[0].url)
+
+                    $(".now-playing-artist").text(response.items[i + 1].track.album.artists[0].name) //WHY?
+                    $(".now-playing-song").text(response.items[i + 1].track.name)
+
+                    $("#preview-player").attr("src", response.items[i + 1].track.preview_url)
+                    $(".now-playing-artist").html(response.items[i++].track.artist.name) //this makes it work for 
+
+
+                })
+
+                $(".previous-track-playlist").on("click", function () {
+
+                    $(".album-cover").attr("src", response.items[i - 1].track.album.images[0].url)
+
+                    $(".now-playing-artist").text(response.items[i - 1].track.album.artists[0].name) //WHY?
+                    $(".now-playing-song").text(response.items[i - 1].track.name)
+
+                    $("#preview-player").attr("src", response.items[i - 1].track.preview_url)
+                    $(".now-playing-artist").html(response.items[i++].track.artist.name) //this makes it work for 
+
+                })
 
             }
         })
@@ -312,9 +528,12 @@ function getPlaylistTracks() {
 
 }
 
+
 //uhhhhh
-$(".cowboy").on("click", function (event) {
+$(".genre-img").on("click", function (event) {
     event.preventDefault()
+    $(".album-page-title").text("Playlist")
+
     $(".grid-container3").css("display", "inline-grid")
     $(".grid-container").css("display", "hidden")
     $(".grid-container2").css("display", "hidden");
@@ -322,17 +541,79 @@ $(".cowboy").on("click", function (event) {
 
 })
 
+$(".cowboy").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Country")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
 
-$(document).ready(function () {
-    console.log("ready")
-    getPlaylists();
-    getUserProfile();
-});
+    $(".album-cover-page").attr("src", "cowboy.svg")
+})
+$(".playground").on("click", function (event) {
+    event.preventDefault()
+
+    $(".album-cover-page").attr("src", "playground.svg")
+    $(".album-page-name").text("Pop Punk")
+
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+
+$(".psychedelic").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Psychedelic")
+
+    $(".album-cover-page").attr("src", "Joshua Tree.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+
+$(".rocknroll").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Road Trip")
+
+    $(".album-cover-page").attr("src", "road-trip.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+
+$(".metal").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Metal")
+
+    $(".album-cover-page").attr("src", "pitchfork.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+$(".shattuck").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Noise Rock")
+
+    $(".album-cover-page").attr("src", "shattuck.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+$(".jazz").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Jazz")
+
+    $(".album-cover-page").attr("src", "jazz.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+$(".pancakes").on("click", function (event) {
+    event.preventDefault()
+    $(".album-page-name").text("Morning")
+
+    $(".album-cover-page").attr("src", "pancakes.svg")
+    $(".by-artist-album").text("Created by" + " " + "Kevin Buchik")
+
+})
+
 
 //get artists top tracks and album covers
 function searchSpotify(id) {
 
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/top-tracks?country=us"
 
     $.ajax({
@@ -412,9 +693,9 @@ function searchSpotify(id) {
 
 //initial function to retrieve artists name, artist picture and populates other search functions wit id callbacks
 function searchSpotifyName() {
-    var inputArtist = $(".validationDefault01").val().trim() || $(".validationDefault02").val().trim() || $(".validationDefault03").val().trim()
+    var inputArtist = $(".validationDefault01").val().trim() || $(".validationDefault02").val().trim() || $(".validationDefault03").val().trim() || $(".by-artist-album").text() || $(".playlist-artist").val();
 
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/search?q=" + inputArtist + "&type=artist&limit=1"
     $.ajax({
         url: queryUrl,
@@ -426,6 +707,7 @@ function searchSpotifyName() {
         $(".header-image").css("background-image", "url(" + response.artists.items[0].images[0].url + ")")
 
         var artistName = (response.artists.items[0].name)
+        var artistArray = artistName.split("")
         var artistSplit = artistName.split(" ")
 
         if (artistSplit.length === 1) {
@@ -449,7 +731,11 @@ function searchSpotifyName() {
 
 
         }
+        if (artistArray.length > 10) {
+            $(".band-header").css("font-size", "4em")
+            $(".band-header2").css("font-size", "4em")
 
+        }
 
 
         // $(".band-header").text(artistName)
@@ -458,7 +744,7 @@ function searchSpotifyName() {
         searchSpotify(response.artists.items[0].id)
         searchRelatedArtists(response.artists.items[0].id)
         searchSpotifyNameClone(response.artists.items[0].id)
-
+        getPlaylistTracks(response.artists.items[0].id)
 
     })
 
@@ -466,8 +752,9 @@ function searchSpotifyName() {
 
 }
 
+
 function searchSpotifyNameClone(id) {
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id
     $.ajax({
         url: queryUrl,
@@ -476,25 +763,31 @@ function searchSpotifyNameClone(id) {
             'Authorization': 'Bearer ' + accessToken
         },
     }).then(function (response) {
-
-
-
-
         $(".header-image").css("background-image", "url(" + response.images[0].url + ")")
 
         var artistName = (response.name)
+        var artistArray = artistName.split("")
+
         var artistSplit = artistName.split(" ")
+        var artistArray1 = artistSplit[0]
+
 
         if (artistSplit.length === 1) {
             $(".band-header").text(artistSplit)
             $(".band-header2").text(artistSplit)
             $(".band-header2").css("transform", "scaleX(-1) rotate(180deg)")
+            $(".band-header").css("font-size", "5em")
+            $(".band-header2").css("font-size", "5em")
+
 
         }
         if (artistSplit.length === 2) {
             $(".band-header").text(artistSplit[0])
             $(".band-header2").text(artistSplit[1])
             $(".band-header2").css("transform", "none")
+            $(".band-header").css("font-size", "5em")
+            $(".band-header2").css("font-size", "5em")
+
 
 
         }
@@ -503,12 +796,52 @@ function searchSpotifyNameClone(id) {
             $(".band-header").text(artistSplit[0]);
             $(".band-header2").text(artistSplit[1] + " " + " " + artistSplit[2])
             $(".band-header2").css("transform", "none")
+            $(".band-header").css("font-size", "5em")
+            $(".band-header2").css("font-size", "5em")
 
 
         }
         if (artistSplit.length > 3) {
             $(".band-header").text(artistName);
+            $(".band-header2").text(" ")
+
         }
+
+        if (artistArray.length > 10) {
+            $(".band-header").css("font-size", "4em")
+            $(".band-header2").css("font-size", "4em")
+
+        }
+
+        if (artistArray.length > 12) {
+            $(".band-header").css("font-size", "3em")
+            $(".band-header2").css("font-size", "3em")
+
+        }
+
+        if (artistArray.length > 10 && artistSplit.length === 2) {
+            $(".band-header").text(artistSplit[0])
+            $(".band-header2").text(artistSplit[1])
+            $(".band-header2").css("transform", "none")
+            $(".band-header").css("font-size", "5em")
+            $(".band-header2").css("font-size", "5em")
+
+
+
+        }
+
+        if (artistArray.length > 10 && artistSplit.length === 3) {
+
+            $(".band-header").text(artistSplit[0]);
+            $(".band-header2").text(artistSplit[1] + " " + " " + artistSplit[2])
+            $(".band-header2").css("transform", "none")
+            $(".band-header").css("font-size", "5em")
+            $(".band-header2").css("font-size", "5em")
+
+        }
+
+
+
 
         // $(".band-header").text(artistName)
         // $(".band-header").text(response.artists.items[0].name)
@@ -531,7 +864,7 @@ function searchSpotifyNameClone(id) {
 function searchAlbumCovers(id) {
 
 
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/albums?market=us&limit=10"
 
     $.ajax({
@@ -539,7 +872,7 @@ function searchAlbumCovers(id) {
         method: "GET",
         headers: {
             'Authorization': 'Bearer ' + accessToken
-        },
+        }
     }).then(function (response) {
 
         $(".image-results").attr("src", response.items[0].images[0].url)
@@ -568,6 +901,12 @@ function searchAlbumCovers(id) {
         $(".album-name6").text(response.items[5].name)
         $(".album-name7").text(response.items[6].name)
 
+        $(".more-albums").attr("src", response.items[i].images[0].url)
+        $(".more-albums:nth-child(2)").attr("src", response.items[1].images[0].url)
+        $(".more-albums:nth-child(3)").attr("src", response.items[2].images[0].url)
+        $(".more-albums:nth-child(4)").attr("src", response.items[3].images[0].url)
+        $(".more-albums:nth-child(5)").attr("src", response.items[4].images[0].url)
+        $(".more-albums:nth-child(6)").attr("src", response.items[5].images[0].url)
 
 
         console.log(response.items[0].images[0].url)
@@ -578,107 +917,151 @@ function searchAlbumCovers(id) {
 
 
 }
+
 $(document).ready(
-function getAlbumTracklist() {
-    $(".image-results").click(function () {
 
-        var albumId = $(this).attr("value");
-        var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
-        var queryUrl = "https://api.spotify.com/v1/albums/" + albumId + "/tracks"
+    function getAlbumTracklist() {
+        $(".image-results, .on-this-day-cover, .album-picks-for-you, .recent-album-cover").click(function () {
 
-        $.ajax({
-            url: queryUrl,
-            method: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-        }).then(function (response) {
+            var albumId = $(this).attr("value");
+            var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
+            var queryUrl = "https://api.spotify.com/v1/albums/" + albumId + "/tracks"
 
-            for (let i = 0; i < response.items.length; i++) {
+            $.ajax({
+                url: queryUrl,
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+            }).then(function (response) {
+                console.log(response)
+                for (let i = 0; i < response.items.length + 1; i++) {
 
-                let tracklistDiv = $("<div>")
-                let results = response.items[i].name
+                    let tracklistDiv = $("<div>")
+                    let results = response.items[i].name
 
-                tracklistDisplay = $("<p>").text(results).addClass("track")
-                let trackHr = $("<hr>")
-                let albumTrackDuration = response.items[i].duration_ms
-                let newAlbumTrackTime = timeConversion(albumTrackDuration)
-                let trackTime = $("<p>").text(newAlbumTrackTime).addClass("track-time")
-                let trackNumber = (response.items[i].track_number)
+                    tracklistDisplay = $("<p>").text(results).addClass("track")
+                    let trackHr = $("<hr>")
+                    let albumTrackDuration = response.items[i].duration_ms
+                    let newAlbumTrackTime = timeConversion(albumTrackDuration)
+                    let trackTime = $("<p>").text(newAlbumTrackTime).addClass("track-time")
+                    let trackNumber = (response.items[i].track_number)
+                    $(".next-track").addClass("next-track-album")
+                    $(".previous-track").addClass("previous-track-album")
 
-                tracklistDiv.html(tracklistDisplay)
+                    tracklistDiv.html(tracklistDisplay)
 
-                $(".track-list").append(tracklistDiv)
-                $(".track-list").append(trackHr)
-                $(tracklistDiv).append(trackTime)
-                $(tracklistDiv).prepend(trackNumber + " " + " " + " " + " ").addClass("track-number")
-
-
-
-                $(".track").on("click", function () {
-                    $("#preview-player").attr("src", response.items[i].preview_url)
-
-                    $(".now-playing-song").html(response.items[i].name)
-
-                    $(".now-playing-artist").html(response.items[i].artists[0].name)
-                    $(".now-playing-artist").html(response.items[i].track.artists[0].name)//wtf 
-
-                    console.log("working")
-
-                })
-
-            }
+                    $(".track-list").append(tracklistDiv)
+                    $(".track-list").append(trackHr)
+                    $(tracklistDiv).append(trackTime)
+                    $(tracklistDiv).prepend(trackNumber + " " + " " + " " + " ").addClass("track-number")
 
 
+                    $(".track").on("click", function () {
+                        $("#preview-player").attr("src", response.items[i].preview_url)
 
-        })
+                        $(".now-playing-song").html(response.items[i].name)
 
-    })
+                        $(".now-playing-artist").html(response.items[i].artists[0].name)
 
-}
-)
-$(document).ready(
-function getAlbumInfo() {
-    $(".image-results").on("click", function () {
-        var albumId = $(this).attr("value");
-        var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
-        var queryUrl = "https://api.spotify.com/v1/albums/" + albumId
+                        $(".now-playing-artist").html(response.items[i].track.artists[0].name)//wtf 
 
-        $.ajax({
-            url: queryUrl,
-            method: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-        }).then(function (response) {
-            console.log(response)
 
-            $(".track-list").on("click", function (event) {
-                event.preventDefault();
-                $(".album-cover").attr("src", response.images[0].url)
+                    })
+
+
+                    $(".next-track-album").on("click", function () {
+                        $("#preview-player").attr("src", response.items[i + 1].preview_url)
+
+                        $(".now-playing-song").html(response.items[i + 1].name)
+
+                        $(".now-playing-artist").html(response.items[i + 1].artists[0].name)
+                        $(".now-playing-artist").html(response.items[i++].track.artists[0].name)//wtf 
+
+                        console.log("working")
+
+                    })
+                    $(".previous-track").on("click", function () {
+                        $("#preview-player").attr("src", response.items[i - 1].preview_url)
+
+                        $(".now-playing-song").html(response.items[i - 1].name)
+
+                        $(".now-playing-artist").html(response.items[i - 1].artists[0].name)
+                        $(".now-playing-artist").html(response.items[i++].track.artists[0].name)//wtf 
+
+                        console.log("working")
+
+                    })
+
+
+
+                }
 
 
             })
-            let releaseDate = (response.release_date);
-            let releaseYear = releaseDate.split("-");
 
+        })
+
+    }
+)
+$(document).ready(
+    function getAlbumInfo() {
+        $(".image-results, .on-this-day-cover, .album-picks-for-you, .recent-album-cover").on("click", function () {
+            var albumId = $(this).attr("value");
+            var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
+            var queryUrl = "https://api.spotify.com/v1/albums/" + albumId
+
+            $.ajax({
+                url: queryUrl,
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+            }).then(function (response) {
+                console.log(response)
+
+                $(".track-list").on("click", function (event) {
+                    event.preventDefault();
+                    console.log("plesework")
+                    $(".album-cover").attr("src", response.images[0].url)
+
+
+                })
+                let releaseDate = (response.release_date);
+                let releaseYear = releaseDate.split("-");
+                $(".album-page-title").text("Album")
                 $(".album-cover-page").attr("src", response.images[0].url)
                 $(".album-page-name").text(response.name)
                 $(".by-artist-album").text("by " + response.artists[0].name)
                 $(".release-date").text(releaseYear[0] + "-" + response.total_tracks + " Tracks")
 
-        
+
+                $(".by-artist-album").on("click", function (event) {
+                    event.preventDefault();
+                    let backToArtist = $(".by-artist-album").text()
+                    searchSpotifyNameClone(response.artists[0].id)
+                    searchRelatedArtists(response.artists[0].id)
+                    searchSpotify(response.artists[0].id);
+                    searchAlbumCovers(response.artists[0].id);
+                
+                    $(".grid-container2").css("display", "inline-grid")
+                    $(".grid-container3").css("display", "none")
+                    $(".track-list").empty()
+                
+                })
+                
+
+            })
 
         })
-    })
 
 
-}
+    }
 )
 //get artists related artists
 function searchRelatedArtists(id) {
 
-    var accessToken = "BQC3XDGFbsdEgoKjX8e2jgF3MWcvnND1cgy1bbVGaa__y-DRq7F-j9TZFB9gPHnLh-i01Zf3Hpy6_DOaXLRrbpn0aixUewHpTmfR3X55IOh6Dvx9lSXXDMD4GcAJthwwcpU1Fg5gmXlf"
+    var accessToken = "BQAQsoQrrhYMyT6hF9GFX7FfZ0qN8dVlBLbSna_ONE3zz87GtMkAOvofTIDjm4CWUk7B3mZJNfsmuKBbbayG-2fok024EkBeOGIun7euVh7lEmFpBpgB0f5l-VMqV5f-PYNJzPoo8iMsHyFOR0C9o85ETo_mdIg2E56FzO65_mRKjO_60pCoYryhB2bRJC6AaNe5-Vpw0DUk2pp0alqT3VCgbUrfrMAn5YWGOoHDi_zT3YyWHvts_Ek6REcQ05Uqr79f_nsiWfc"
     var queryUrl = "https://api.spotify.com/v1/artists/" + id + "/related-artists"
 
     $.ajax({
@@ -688,6 +1071,9 @@ function searchRelatedArtists(id) {
             'Authorization': 'Bearer ' + accessToken
         },
     }).then(function (response) {
+
+
+
         $(".related1").attr("src", response.artists[0].images[0].url)
         $(".related1").attr("value", response.artists[0].id)
 
@@ -701,11 +1087,11 @@ function searchRelatedArtists(id) {
         $(".name2").text(response.artists[1].name)
         $(".name3").text(response.artists[2].name)
         $(".name4").text(response.artists[3].name)
+
         console.log(response)
         //when related artists are clicked 
 
-        $(".circle1").on("click", function (event) {
-            event.preventDefault();
+        $(".circle1").on("click", function () {
             searchRelatedArtists(response.artists[0].id)
             searchSpotify(response.artists[0].id);
             searchAlbumCovers(response.artists[0].id);
@@ -743,7 +1129,14 @@ function timeConversion(ms) {
     var seconds = ((ms % 60000) / 1000).toFixed(0);
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
+$(".home").on("click",function (event){
+event.preventDefault();
+$(".grid-container4").css("display","inline-grid")
+$(".grid-container").css("display", "hidden")
+$(".grid-container2").css("display", "hidden")
 
+
+})
 $("ul").on("click", function (event) {
 
     event.preventDefault();
@@ -752,6 +1145,8 @@ $("ul").on("click", function (event) {
     $(".grid-container3").css("display", "inline-grid")
     $(".grid-container").css("display", "hidden")
     $(".grid-container2").css("display", "hidden")
+    $(".grid-container4").css("display", "none")
+
     $(".track-list").empty()
     getPlaylistTracks();
     $(".album-page-title").text("Playlist")
@@ -764,28 +1159,32 @@ $(".top-albums").on("click", function () {
     $(".grid-container3").css("display", "inline-grid")
     getAlbumInfo()
     getAlbumTracklist();
+    searchAlbumCovers();
+    $(".track-list").empty()
 
 
 })
+$(".image-results, .on-this-day-cover, .album-picks-for-you, .recent-album-cover").on("click", function () {
+    $(".grid-container3").css("display", "inline-grid")
+    $(".grid-container4").css("display", "none")
+    $(".track-list").empty()
+
+})
+
+
 
 $(".browse").on("click", function (event) {
     event.preventDefault();
     $(".grid-container").css("display", "inline-grid")
     $(".grid-container3").css("display", "none")
     $(".grid-container2").css("display", "none")
+    $(".grid-container4").css("display","none")
+
+    $(".track-list").empty()
+
 
 
 })
-
-$(".by-artist-album").on("click", function (event) {
-    event.preventDefault();
-    let backToArtist = $(".by-artist-album").text()
-    searchSpotify(backToArtist)
-
-    $(".grid-container2").css("display", "inline-grid")
-    $(".grid-container3").css("display", "none")
-})
-
 
 
 $(".play-button").on("click", function (event) {
@@ -820,6 +1219,7 @@ $(".submit-button").on("click", function (event) {
     }
     $(".grid-container2").css("display", "inline-grid")
     $(".grid-container3").css("display", "none")
+    $(".grid-container4").css("display", "none")
 
     $(".validationDefault01").val("")
     $(".track-list").empty()
@@ -839,6 +1239,8 @@ $(".submit-button2").on("click", function (event) {
 
     $(".validationDefault02").val("")
     $(".track-list").empty()
+    $(".grid-container4").css("display", "none")
+
 
 })
 $(".submit-button3").on("click", function (event) {
@@ -846,6 +1248,8 @@ $(".submit-button3").on("click", function (event) {
     console.log("value:" + $(".validationDefault03").val())
     submitCount++;
     $(".grid-container3").css("display", "none")
+    $(".grid-container4").css("display", "none")
+
     if ($(".validationDefault03").val() !== "") {
         $(".grid-container2").css("display", "inline-grid")
 
@@ -993,4 +1397,6 @@ function changeGain(sliderVal, nbFilter) {
 
 
 
-//dynamically generate holders for images and text
+//dynamically generate holders for images and text (maybe?)
+
+//add homepage like in your adobe xd template

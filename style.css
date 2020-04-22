@@ -37,9 +37,18 @@ body::-webkit-scrollbar {
     grid-template-rows: auto auto auto auto auto auto auto auto auto 1px;
     position: relative;
     top: -700px;
-    z-index:3;
   }
- 
+  .grid-container4 {   background-color: #012121;
+    width: 520%;
+    height: 1vh;
+    display: none;
+    grid-gap: 1px;
+    grid-template-columns:246.297px;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto 1px;
+    position: relative;
+    top: -700px;
+
+  }
 
   .a {
     background-color: #121212 !important;
@@ -55,8 +64,9 @@ body::-webkit-scrollbar {
   .c {
     grid-column: 2 / 10;
     grid-row: 1 / 10;
-    background-color:#153232;
-    overflow-x:hidden;
+    background: rgb(1,33,33);
+    background: linear-gradient(180deg, rgba(1,33,33,1) 0%, rgba(4,36,36,1) 2%, rgba(85,106,106,1) 100%);
+        overflow-x:hidden;
     margin-left:-50px;
   }
 
@@ -177,7 +187,7 @@ display:inline;
 
 .sound-controls{float:right;
 margin-right:170px;
-margin-top:-40px;}
+margin-top:-50px;}
 
 .pair{margin-left:10px;}
 
@@ -258,7 +268,7 @@ top:135px;}
 top:200px;}
 
 hr{background-color:#707070;
-opacity:.2}
+opacity:.5}
 
 .artist-play{position:absolute;
   background-color:#31B954;
@@ -284,7 +294,6 @@ word-spacing:100px;}
 top:245px;
 font-size:1.5em;
 left:20px;
-z-index:2;
 margin-right: 702px;}
 
 .top-albums{  
@@ -322,6 +331,10 @@ top:-50px;
   font-size:20px!important;
 color:#A0A0A0;
 margin-right: -250px !important;
+white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
 }
 .popular-songs:hover{cursor:pointer;
 color:white;}
@@ -348,6 +361,8 @@ color:white;}
   top: 500px;
   font-family:"geeza pro";
 }
+
+.related-circle:hover{cursor:pointer}
 .related-circle{
   margin-left:10px;
 display:inline-block;
@@ -441,6 +456,8 @@ body{background-color:#282828;;}
 .image-results{  width: 120px;
   height:120px;
 }
+
+.image-results:hover{cursor:pointer;}
 .release-names{font-size:10px;
   position:absolute;
 
@@ -513,7 +530,7 @@ margin-left:10px;}
   padding: 0px !important;
   background-color: #282828;
 position:absolute;
-top:42.5px;
+top:32px;
 color:#5E5E5E;
 right:50px;;
 }
@@ -565,6 +582,7 @@ grid-auto-rows: inherit;}
     grid-template-rows: repeat(2, 220px);
     grid-gap: 15px;}
 
+    .chickenhawk{top:-165px;}
 
     h3
     {
@@ -579,7 +597,7 @@ grid-auto-rows: inherit;}
   margin-left: 700px;
   margin-top: -40px;
   font-family: "Hoefler Text";
-  color:#153232;
+  color:#032626;
   text-shadow: -1px 0 #858585, 0 1px #858585, 1px 0 #858585, 0 -1px #858585;
  top:200px;}
  
@@ -592,6 +610,7 @@ grid-auto-rows: inherit;}
 }
 .sidebar{overflow:auto;
   font-family:"geeza pro";
+      width: 198px;
 height:500px;}
 
 
@@ -737,7 +756,7 @@ font-size:33px;}
 
 .morning-text{margin-top:-190px;}
 
-.rock-text{margin-top:-185px;}
+.rock-text{margin-top: -155px;}
 
 .jazz-text{margin-top:-220px;}
 
@@ -752,7 +771,6 @@ font-size:33px;}
 
 .album-cover-page{width:225px;
 height:225px;
-background-color:white;
 margin-top:-150px;
 margin-left:20px;}
 
@@ -778,7 +796,7 @@ line-height:.5px !important;
 .track-time{position: relative;
   top: -5px;
   left: 950px;}
-.track:hover, .playlist-track:hover{
+.track:hover, .playlist-track:hover, .playlist-artist:hover{
   cursor:pointer;
   color:white;
 }
@@ -791,7 +809,8 @@ line-height:.5px !important;
     left: 950px;}
 
 
-.more-albums-by{display:flex;}
+.more-albums-by{display:flex;
+margin-top:100px;}
 .more-albums{
   margin-left:12px;
   margin-bottom:200px;
@@ -802,4 +821,148 @@ background-color:white;}
 .more-a-b-a{color:white;
 margin-left:20px;}
 
-.by-artist-album:hover{cursor:pointer;}
+.by-artist-album:hover{cursor:pointer;
+color:grey;}
+
+
+/* home page */
+
+.recent-album-cover{width:148px;
+height:148px;
+margin:2px;
+
+}
+.recent-album-cover4  {       margin-top: -115px;}
+/* .recent-album-cover2{    margin-top: 20px;}
+.recent-album-cover5{    margin-top: 20px;}
+.recent-album-cover3{margin-top: 20px;}
+.recent-album-cover6{margin-top: 20px;} */
+
+.recently-played{display: grid;
+  position:relative;
+  left:40px;
+  top:-120px;
+  margin-right: 900px;}
+
+  .recently-played2{display: grid;
+    position: relative;
+    top: -609px;
+    left: 200px;
+    margin-right: 900px;
+  }
+
+.on-this-day{position: relative;
+  top: -200px;
+  /* display: inline-block; */
+  margin-top: -955px;
+      margin-left: 420px;
+}
+
+.on-this-day-album-name{
+  color:white;
+  font-family:'geeza pro';
+  line-height:-1px;
+
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width:80%;
+}
+
+.on-this-day-artist-name{
+  font-size:13px;
+  color:white;
+  font-family: 'geeza pro';
+margin-top:-20px;
+}
+
+
+
+.on-this-day-cover{width:182px;
+  height:182px;
+  margin-right: 3px;
+  margin-top: -90px;
+
+}
+
+.picks-for-you{margin-left: 392px;
+  margin-top: -200px;}
+
+
+.album-picks-for-you{width:116px;
+height:116px;
+margin-left:28px;
+padding-top:5px;}
+
+#new-releases{
+  position: relative;
+  top: -635px;
+  margin: 0px;
+  right: 180px;
+}
+.new-release-album-name{    color: white;
+  line-height:1vw;
+  margin-top:5px;
+  font-size:16px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width:60%;
+
+}
+
+.new-release-artist-name{    font-size: 13px;
+  color: #B3B3B3;
+line-height:1px;}
+
+.jump-in{    position: absolute;
+  top:80px;}
+
+
+  .image-results:hover, .on-this-day-cover:hover, .album-picks-for-you:hover, .recent-album-cover:hover{cursor:pointer;
+    filter: drop-shadow(16px 16px 20px white); 
+  }
+
+  .navigation-line{position: absolute;
+    top: 50px;
+    margin-left: -63px;}
+
+
+.move-up{       margin-top: -50px;
+margin-bottom:200px;}
+
+.test1{display:inline-block;}
+
+.pick{display:inline-block;}
+
+.picks-album{    margin-left: 28px;
+  color:white;
+  font-size:12px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width:100px;
+  padding-right:0px;
+}
+
+.picks-artist{margin-left:28px;
+margin-top:-20px;
+font-size:10px;
+color:#B3B3B3}
+
+.saved{    color: white;
+  font-size: 24px;
+  font-family: 'geeza pro';
+  margin-left: 26px;
+}
+
+
+.vl {
+  border-left: 1px solid #707070;
+  height: 900px;
+  position: absolute;
+  left:580px;
+  top:100px;
+  z-index:0;
+  opacity:.3;
+}
