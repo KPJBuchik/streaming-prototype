@@ -26,9 +26,12 @@
       <div class="sidebar">
 
         <label class="sr-only" for="validationDefault01">Name</label>
-        <form>
+        <form class="search-form">
           <input type="text" class="validationDefault01" placeholder="search" class="search"><br>
           <input class="submit-button" href="index.html/#grid-container2" type="submit" style="visibility: hidden;" />
+          <button type="submit" type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+         </button>
         </form>
         <p id="title">Playlists</p>
         <div class="lists">
@@ -38,7 +41,6 @@
           <ul>Artists</ul>
           <ul>Artists</ul>
           <ul>Artists</ul>
-          <p id="title">Your Library</p>
           <ul>Artists</ul>
           <ul>Artists</ul>
           <ul>Artists</ul>
@@ -51,7 +53,7 @@
 
         </div>
       </div>
-      <div class="album-cover"><img class="album-cover" src="spotify.logo.png"></div>
+      <div class="album-cover"><img class="album-cover" src="streaminglogo.svg"></div>
     </div>
 
     <div class="c">
@@ -61,9 +63,16 @@
 
         <div class="clubopen"></div>
       </div>
-      <div class="tab"><i class="fas fa-users"></i></div>
-      <div class="tab2"><i class="fas fa-cog"></i></div>
-
+      <div class="tab" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-users"></i></div>
+      <div class="tab2" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-cog"></i></div>
+      <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content1">
+            <img class="construction" src="construction.png">
+          </div>
+        </div>
+      </div>
+      
       <div class="header-controls">
         <input class="back-button back1" type="image" src="Component 11 – 46.png">
         <input class="forward-button" type="image" src="Component 11 – 46.png">
@@ -101,9 +110,9 @@
           <h3 class="row1-text morning-text">Morning</h3>
 
         </div>
-        <div class="genre-square"><img class="genre-img rocknroll" src="road-trip.svg">
-          <img class="genre-icon chickenhawk" src="vancolor.svg">
-          <h3 class="row2-text rock-text">Road Trip</h3>
+        <div class="genre-square"><img value="6gq9fsn7aTDP0aItPu57SR" class="genre-img rocknroll" src="locked.svg">
+          <img class="genre-icon chickenhawk" src="mask.svg">
+          <h3 class="row2-text rock-text">2020</h3>
 
         </div>
         <div class="genre-square"><img value="1KqB8MP5zl8a4CkvVQoODf" class="genre-img jazz" src="jazz.svg">
@@ -126,7 +135,7 @@
     <div class="e">
       <p class="now-playing-artist">Welcome</p>
       <br>
-      <p class="now-playing-song">to Spotify!</p>
+      <p class="now-playing-song">to Tune Almanac!!</p>
       <div class="controls">
         <input class="play-button" type="image" src="play2.svg">
         <input class="next-track" type="image" src="Component 20 – 7.png">
@@ -245,12 +254,15 @@
     <div class="grid-container2">
       <div class="a">
         <div class="sidebar">
-
-          <label class="sr-only" for="validationDefault02">Name</label>
-          <form>
-            <input type="text" class="validationDefault02" placeholder="search" class="search"><br>
-            <input class="submit-button2" type="submit" style="visibility: hidden;" />
+          <label class="sr-only" for="validationDefault01">Name</label>
+          <form class="search-form">
+            <input type="text" class="validationDefault01" placeholder="search" class="search"><br>
+            <input class="submit-button" href="index.html/#grid-container2" type="submit" style="visibility: hidden;" />
+            <button type="submit" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+           </button>
           </form>
+  
           <p id="title">Playlists</p>
           <div class="lists">
             <ul class="playlist">Artists</ul>
@@ -259,7 +271,6 @@
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
-            <p id="title">Your Library</p>
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
@@ -272,7 +283,7 @@
 
           </div>
         </div>
-        <img class="album-cover" src="Rectangle 661.png">
+        <img class="album-cover" src="streaminglogo.svg">
       </div>
 
       <div class="c">
@@ -282,9 +293,16 @@
 
           <div class="clubopen"></div>
         </div>
-        <div class="tab"><i class="fas fa-users"></i></div>
-        <div class="tab2"><i class="fas fa-cog"></i></div>
-
+        <div class="tab" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-users"></i></div>
+        <div class="tab2" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-cog"></i></div>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content1">
+              <img class="construction" src="construction.png">
+            </div>
+          </div>
+        </div>
+  
         <div class="header-controls">
           <input class="back-button back2" type="image" src="Component 11 – 46.png">
           <input class="forward-button" type="image" src="Component 11 – 46.png">
@@ -334,6 +352,7 @@
             <div class="timez timez5">3:20</div>
 
           </div>
+
           <div class="related-artists">
             <p class="fans-like">Related Artists</p>
 
@@ -369,7 +388,7 @@
       <div class="e">
         <p class="now-playing-artist">Welcome</p>
         <br>
-        <p class="now-playing-song">to Spotify</p>
+        <p class="now-playing-song">to Tune Almanac!</p>
         <div class="controls">
           <input class="play-button" type="image" src="play2.svg">
           <input class="next-track" type="image" src="Component 20 – 7.png">
@@ -489,13 +508,15 @@
     <div class="grid-container3">
       <div class="a">
         <div class="sidebar">
-
-          <label class="sr-only" for="validationDefault03">Name</label>
-          <form>
-            <input type="text" class="validationDefault03" placeholder="search" class="search"><br>
-            <input class="submit-button3" href="index.html/#grid-container2" type="submit"
-              style="visibility: hidden;" />
+          <label class="sr-only" for="validationDefault01">Name</label>
+          <form class="search-form">
+            <input type="text" class="validationDefault01" placeholder="search" class="search"><br>
+            <input class="submit-button" href="index.html/#grid-container2" type="submit" style="visibility: hidden;" />
+            <button type="submit" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+           </button>
           </form>
+  
           <p id="title">Playlists</p>
           <div class="lists">
             <ul class="playlist">Artists</ul>
@@ -504,7 +525,6 @@
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
-            <p id="title">Your Library</p>
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
@@ -517,7 +537,7 @@
 
           </div>
         </div>
-        <img class="album-cover" src="Rectangle 661.png">
+        <img class="album-cover" src="streaminglogo.svg">
       </div>
 
 
@@ -528,10 +548,16 @@
 
           <div class="clubopen"></div>
         </div>
-        <div class="tab"><i class="fas fa-users"></i></div>
-        <div class="tab2"><i class="fas fa-cog"></i></div>
-
-        <div class="header-controls">
+        <div class="tab" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-users"></i></div>
+        <div class="tab2" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-cog"></i></div>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content1">
+              <img class="construction" src="construction.png">
+            </div>
+          </div>
+        </div>
+          <div class="header-controls">
           <input class="back-button" type="image" src="Component 11 – 46.png">
           <input class="forward-button" type="image" src="Component 11 – 46.png">
           <input class="home" type="image" src="mynewhouse.png">
@@ -548,7 +574,7 @@
             <p class="album-page-title">Album</p>
           </div>
           <p class="album-page-name">Album Name</p>
-          <p class="by-artist-album">By Artist</p>
+          <span class="by">By </span> <p class="by-artist-album">Artist</p>
           <p class="release-date">2020 - 10 Songs, 30 Minutes</p>
         </div>
 
@@ -557,7 +583,7 @@
         <div class="track-list">
           <div class="track-time"></div>
         </div>
-
+        <div class="label"></div>
         <div class="more-albums-by">
      
 
@@ -571,7 +597,7 @@
       <div class="e">
         <p class="now-playing-artist">Welcome</p>
         <br>
-        <p class="now-playing-song">to Spotify!</p>
+        <p class="now-playing-song">to Tune Almanac!!</p>
         <div class="controls">
           <input class="play-button" type="image" src="play2.svg">
           <input class="next-track" type="image" src="Component 20 – 7.png">
@@ -691,11 +717,14 @@
         <div class="sidebar">
 
           <label class="sr-only" for="validationDefault01">Name</label>
-          <form>
+          <form class="search-form">
             <input type="text" class="validationDefault01" placeholder="search" class="search"><br>
             <input class="submit-button" href="index.html/#grid-container2" type="submit" style="visibility: hidden;" />
+            <button type="submit" type="submit" class="searchButton">
+              <i class="fa fa-search"></i>
+           </button>
           </form>
-          <p id="title">Playlists</p>
+            <p id="title">Playlists</p>
           <div class="lists">
             <ul class="playlist">Artists</ul>
             <ul></ul>
@@ -703,7 +732,6 @@
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
-            <p id="title">Your Library</p>
             <ul>Artists</ul>
             <ul>Artists</ul>
             <ul>Artists</ul>
@@ -716,7 +744,7 @@
 
           </div>
         </div>
-        <div class="album-cover"><img class="album-cover" src="spotify.logo.png"></div>
+        <div class="album-cover"><img class="album-cover" src="streaminglogo.svg"></div>
       </div>
 
       <div class="c">
@@ -726,10 +754,16 @@
 
           <div class="clubopen"></div>
         </div>
-        <div class="tab"><i class="fas fa-users"></i></div>
-        <div class="tab2"><i class="fas fa-cog"></i></div>
-
-        <div class="header-controls">
+        <div class="tab" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-users"></i></div>
+        <div class="tab2" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-cog"></i></div>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content1">
+              <img class="construction" src="construction.png">
+            </div>
+          </div>
+        </div>
+          <div class="header-controls">
 
           <input class="back-button back1" type="image" src="Component 11 – 46.png">
           <input class="forward-button" type="image" src="Component 11 – 46.png">
@@ -824,7 +858,6 @@
 
 
           </div>
-          <div class="vl"></div>
 
           <div class="picks-for-you">
             <h2 class="saved">Saved Albums</h2>
@@ -840,7 +873,8 @@
               <p class="picks-artist picks-artist2">artist</p>
 
             </div>
-            
+            <div class="vl"></div>
+
             <div class="pick">
 
               <img class="album-picks-for-you album-picks-for-you3">
@@ -900,7 +934,7 @@
       <div class="e">
         <p class="now-playing-artist">Welcome</p>
         <br>
-        <p class="now-playing-song">to Spotify!</p>
+        <p class="now-playing-song">to Tune Almanac!!</p>
         <div class="controls">
           <input class="play-button" type="image" src="play2.svg">
           <input class="next-track" type="image" src="Component 20 – 7.png">
